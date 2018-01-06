@@ -3,7 +3,16 @@ package version
 import (
 	"bytes"
 	"testing"
+
+	"github.com/scottrangerio/azdeploy/cmdtest"
 )
+
+func TestVersionCmd(t *testing.T) {
+	b := bytes.NewBuffer([]byte{})
+	cmd := newVersionCmd(b)
+
+	cmdtest.TestCommand(t, cmd)
+}
 
 func TestVersionCmd_PrintsVersion(t *testing.T) {
 	version = "1.2.3"
