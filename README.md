@@ -1,4 +1,4 @@
-# azdeploy
+# azdeploy [![Build Status](https://travis-ci.org/scottrangerio/azdeploy.svg?branch=master)](https://travis-ci.org/scottrangerio/azdeploy)
 
 CLI application for deploying Azure applications
 
