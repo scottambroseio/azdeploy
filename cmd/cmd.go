@@ -14,7 +14,7 @@ var cfgFile string
 var rootCmd = &cobra.Command{
 	Use:   "azuredeployment",
 	Short: "A CLI for deploying Azure applications",
-	Long: "A CLI for deploying Azure applications",
+	Long:  "A CLI for deploying Azure applications",
 }
 
 func Register(c *cobra.Command) {
