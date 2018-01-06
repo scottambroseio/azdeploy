@@ -18,10 +18,13 @@ var rootCmd = &cobra.Command{
 	Long:  "A CLI for deploying Azure applications",
 }
 
+// AddCommand takes a constructor function for a command, invokes it
+// and adds the resulting command to the root command
 func AddCommand(f func(io.Writer) *cobra.Command) {
 	rootCmd.AddCommand(f(os.Stdout))
 }
 
+// Execute executes the root command
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
