@@ -3,4 +3,7 @@ go:
   - 1.9.2
 
 script:
-  - make test
+  - make fmt
+  - make vet
+  - make cover
+  - make build
