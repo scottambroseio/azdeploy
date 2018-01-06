@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/scottrangerio/azuredeployment/cmd"
-	_ "github.com/scottrangerio/azuredeployment/cmd/version"
+	"github.com/scottrangerio/azdeploy/cmd"
+	_ "github.com/scottrangerio/azdeploy/cmd/version"
 )
 
 func main() {

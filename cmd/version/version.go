@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/scottrangerio/azuredeployment/cmd"
+	"github.com/scottrangerio/azdeploy/cmd"
 	"github.com/spf13/cobra"
 )
 
