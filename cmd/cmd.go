@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"io"
 	"os"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -17,8 +18,8 @@ var rootCmd = &cobra.Command{
 	Long:  "A CLI for deploying Azure applications",
 }
 
-func Register(c *cobra.Command) {
-	rootCmd.AddCommand(c)
+func AddCommand(f func(io.Writer) *cobra.Command) {
+	rootCmd.AddCommand(f(os.Stdout))
 }
 
 func Execute() {
