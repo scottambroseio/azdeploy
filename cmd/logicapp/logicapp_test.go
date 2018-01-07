@@ -1,4 +1,4 @@
-package cmd
+package logicapp
 
 import (
 	"testing"
@@ -6,6 +6,8 @@ import (
 	"github.com/scottrangerio/azdeploy/cmdtest"
 )
 
-func TestCmd(t *testing.T) {
+func TestLogicAppCmd(t *testing.T) {
+	cmd := newLogicAppCmd()
+
 	cmdtest.TestCommand(t, cmd)
 }

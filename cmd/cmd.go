@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"io"
 	"os"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -11,39 +10,43 @@ import (
 )
 
 var cfgFile string
+var cmd *cobra.Command
 
-var rootCmd = &cobra.Command{
-	Use:     "azdeploy",
-	Short:   "A CLI for deploying Azure applications",
-	Long:    "A CLI for deploying Azure applications",
-	Example: "azdeploy",
-}
-
-// AddCommand takes a constructor function for a command, invokes it
-// and adds the resulting command to the root command
-func AddCommand(f func(io.Writer) *cobra.Command) {
-	rootCmd.AddCommand(f(os.Stdout))
+// AddCommand takes a command and adds it to the root command
+func AddCommand(c *cobra.Command) {
+	cmd.AddCommand(c)
 }
 
 // Execute executes the root command
 func Execute() {
-	if err := rootCmd.Execute(); err != nil {
+	if err := cmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
+func newRootCmd() *cobra.Command {
+	return &cobra.Command{
+		Use:     "azdeploy",
+		Short:   "A CLI for deploying Azure applications",
+		Long:    "A CLI for deploying Azure applications",
+		Example: "azdeploy",
+	}
+}
+
 func init() {
+	cmd = newRootCmd()
+
 	cobra.OnInitialize(initConfig)
 
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.azdeploy.yaml)")
+	cmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.azdeploy.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	cmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 func initConfig() {

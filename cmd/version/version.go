@@ -3,6 +3,7 @@ package version
 import (
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/scottrangerio/azdeploy/cmd"
 	"github.com/spf13/cobra"
@@ -23,5 +24,5 @@ func newVersionCmd(w io.Writer) *cobra.Command {
 }
 
 func init() {
-	cmd.AddCommand(newVersionCmd)
+	cmd.AddCommand(newVersionCmd(os.Stdout))
 }

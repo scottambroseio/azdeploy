@@ -15,7 +15,7 @@ vet:
 	@go tool vet $(GO_FILES)
 
 test:
-	@go test ./...
+	@go test ./cmd/...
 
 cover:
-	@go test ./... -cover
+	@go test ./cmd/... -cover

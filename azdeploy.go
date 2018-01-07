@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/scottrangerio/azdeploy/cmd"
+	_ "github.com/scottrangerio/azdeploy/cmd/logicapp"
 	_ "github.com/scottrangerio/azdeploy/cmd/version"
 )
 
