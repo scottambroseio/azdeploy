@@ -13,9 +13,10 @@ import (
 var cfgFile string
 
 var rootCmd = &cobra.Command{
-	Use:   "azdeploy",
-	Short: "A CLI for deploying Azure applications",
-	Long:  "A CLI for deploying Azure applications",
+	Use:     "azdeploy",
+	Short:   "A CLI for deploying Azure applications",
+	Long:    "A CLI for deploying Azure applications",
+	Example: "azdeploy",
 }
 
 // AddCommand takes a constructor function for a command, invokes it

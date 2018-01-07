@@ -3,7 +3,10 @@ go:
   - 1.9.2
 
 script:
-  - make fmt
   - make vet
   - make cover
   - make build
+
+branches:
+  only:
+    - master
